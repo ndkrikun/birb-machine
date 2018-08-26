@@ -1,0 +1,18 @@
+<div class="slots-machine">
+  <div
+    class="slots-machine__section"
+    *ngFor="let section of (slotSections$ | async)"
+  >
+    <div
+      class="slots-machine__section-wrap"
+      [style.marginTop]="getSectionCoordinates(section.activeElementId)">
+      <div
+        class="slots-machine__section-el"
+        [style.backgroundColor]="slot.color"
+        *ngFor="let slot of section.elements"
+      ></div>
+    </div>
+  </div>
+
+  <button (click)="go()">Go</button>
+</div>

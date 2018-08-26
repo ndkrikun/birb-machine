@@ -1,0 +1,24 @@
+.slots-machine {
+  width: 600px;
+  margin: 0 auto;
+
+  &__section {
+    display: inline-block;
+    width: 33.333%;
+    height: 240px;
+    overflow: hidden;
+    transition: margin 200ms ease;
+    &-el {
+      height: 240px;
+      &:nth-child(1) {
+        background-color: #3AEA49;
+      }
+      &:nth-child(2) {
+        background-color: #FAC537;
+      }
+      &:nth-child(3) {
+        background-color: #F34F56;
+      }
+    }
+  }
+}

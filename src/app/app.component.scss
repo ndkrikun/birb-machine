@@ -1,0 +1,12 @@
+.app {
+  min-width: 280px;
+  max-width: 1014px;
+  margin: 20px auto;
+  padding: 0 20px;
+
+  &__headline {
+    padding: 20px 0;
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
