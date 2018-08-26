@@ -6,6 +6,7 @@ import { AppState } from './app.state';
 import { AppComponent } from './app.component';
 import { SlotsMachineComponent } from './components/slots-machine/slots-machine.component';
 import { slotsMachineReducer } from './reducers/slots-machine/slots-machine.reducer';
+import { RandomizeServiceService } from 'src/app/services/randomize-service.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { slotsMachineReducer } from './reducers/slots-machine/slots-machine.redu
     }),
     StoreDevtoolsModule.instrument()
   ],
-  providers: [],
+  providers: [
+    RandomizeServiceService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

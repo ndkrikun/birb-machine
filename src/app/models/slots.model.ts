@@ -16,5 +16,10 @@ export interface SlotElement {
 export enum SlotElementNames {
   MIKE = 'Screaming Mike',
   JOHN = 'Scarry John',
-  MICHAEL = 'Friendly Michael',
+  JAKE = 'Friendly Jake',
+}
+
+export interface ActiveSlotPair {
+  sectionId: number;
+  slotId: number;
 }

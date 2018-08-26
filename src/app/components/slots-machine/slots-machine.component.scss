@@ -9,16 +9,18 @@
     overflow: hidden;
     transition: margin 200ms ease;
     &-el {
+      position: relative;
       height: 240px;
-      &:nth-child(1) {
-        background-color: #3AEA49;
-      }
-      &:nth-child(2) {
-        background-color: #FAC537;
-      }
-      &:nth-child(3) {
-        background-color: #F34F56;
-      }
+    }
+    &-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: 150px 180px;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
   }
 }

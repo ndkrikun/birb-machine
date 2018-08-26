@@ -1,11 +1,7 @@
 import { Action } from '@ngrx/store';
-import { SlotsMachineActionTypes } from '../slots-machine.action-types';
-import { SlotsMachineState } from '../slots-machine.state';
-
-interface ActiveSlotPair {
-  sectionId: number;
-  slotId: number;
-}
+import { ActiveSlotPair } from 'src/app/models/slots.model';
+import { SlotsMachineActionTypes } from 'src/app/reducers/slots-machine/slots-machine.action-types';
+import { SlotsMachineState } from 'src/app/reducers/slots-machine/slots-machine.state';
 
 /**
  * Sets active slots

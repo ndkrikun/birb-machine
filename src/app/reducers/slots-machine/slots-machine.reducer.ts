@@ -1,7 +1,8 @@
-import { SlotsMachineState } from './slots-machine.state';
-import { SetActiveSlotAction } from './actions/set-active-slot.action';
-import { SlotsMachineActionTypes } from './slots-machine.action-types';
-import { slotsCollection } from '../../data/slots.data';
+import { SlotsMachineState } from 'src/app/reducers/slots-machine/slots-machine.state';
+import { SlotsMachineActionTypes } from 'src/app/reducers/slots-machine/slots-machine.action-types';
+import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-active-slot.action';
+import { slotsCollection } from 'src/app/data/slots.data';
+
 
 const slotsMachineDefaultState: SlotsMachineState = {
   sections: [{

@@ -8,9 +8,14 @@
       [style.marginTop]="getSectionCoordinates(section.activeElementId)">
       <div
         class="slots-machine__section-el"
-        [style.backgroundColor]="slot.color"
         *ngFor="let slot of section.elements"
-      ></div>
+        [style.backgroundColor]="slot.color"
+      >
+        <div
+          class="slots-machine__section-image"
+          [style.backgroundImage]="backgroundImage(slot.imageUrl)"
+        ></div>
+      </div>
     </div>
   </div>
 
