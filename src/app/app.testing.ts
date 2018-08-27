@@ -12,6 +12,7 @@ import { stageReducer } from './reducers/stage/stage.reducer';
 import { StageService } from './services/stage.service';
 import { PlayerBalanceComponent } from 'src/app/components/player-balance/player-balance.component';
 import { BalanceService } from './services/balance.service';
+import { SoundsPlayerService } from './services/sounds-player.service';
 
 export const AppConfigureTestingModule = () => {
   return TestBed.configureTestingModule({
@@ -33,6 +34,7 @@ export const AppConfigureTestingModule = () => {
       RandomizerService,
       StageService,
       BalanceService,
+      SoundsPlayerService,
     ],
   });
 };

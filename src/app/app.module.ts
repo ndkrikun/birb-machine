@@ -14,6 +14,7 @@ import { stageReducer } from './reducers/stage/stage.reducer';
 import { StageService } from 'src/app/services/stage.service';
 import { PlayerBalanceComponent } from './components/player-balance/player-balance.component';
 import { BalanceService } from './services/balance.service';
+import { SoundsPlayerService } from 'src/app/services/sounds-player.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BalanceService } from './services/balance.service';
     RandomizerService,
     StageService,
     BalanceService,
+    SoundsPlayerService,
   ],
   bootstrap: [AppComponent]
 })

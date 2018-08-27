@@ -6,6 +6,8 @@ import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-
 import { take, withLatestFrom } from 'rxjs/operators';
 import { BalanceService } from '../../services/balance.service';
 import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet-balance.action';
+import { SoundsPlayerService } from '../../services/sounds-player.service';
+import { SoundNames } from '../../models/sound.model';
 
 @Component({
   selector: 'app-machine-button',
@@ -13,6 +15,15 @@ import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet
   styleUrls: ['./machine-button.component.scss']
 })
 export class MachineButtonComponent {
+  /**
+   * Slot section's animation inprogress flag
+   */
+  public gameStepInProgress = false;
+
+  /**
+   * Slot section's animation duration
+   */
+  private readonly gameStepDebounceDelay = 1200;
 
   /**
    * Slot sections' data
@@ -25,7 +36,15 @@ export class MachineButtonComponent {
     private readonly store: Store<AppState>,
     private readonly randomzer: RandomizerService,
     private readonly balance: BalanceService,
+    private readonly soundsPlayer: SoundsPlayerService,
   ) { }
+
+  /**
+   * Tells if button have disabled status
+   */
+  public get isDisabled(): boolean {
+    return this.gameStepInProgress;
+  }
 
   /**
    * Sets random slots activity
@@ -53,10 +72,25 @@ export class MachineButtonComponent {
   }
 
   /**
+   * Inits debounce timer
+   */
+  public setDebounceTimer(): void {
+    this.gameStepInProgress = true;
+    setTimeout(
+      () => this.gameStepInProgress = false,
+      this.gameStepDebounceDelay,
+    );
+  }
+
+  /**
    * Click on the button handler
    */
-  public clickOnButton(): void {
-    this.setRandomSlots();
-    this.updateBalance();
+  public async clickOnButton(): Promise<void> {
+    if (!this.isDisabled) {
+      await this.soundsPlayer.play(SoundNames.WINGS);
+      this.setDebounceTimer();
+      this.setRandomSlots();
+      this.updateBalance();
+    }
   }
 }

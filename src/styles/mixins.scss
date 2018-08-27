@@ -13,6 +13,11 @@
     color: $backgroundColor;
     background-color: transparent;
   }
+
+  &.is-disabled {
+    opacity: .4;
+    cursor: default;
+  }
 }
 
 @mixin absolute-full($coordinates) {
