@@ -37,7 +37,7 @@ export class SoundsPlayerService {
   /**
    * Returns defauld promise
    */
-  public get defaultPromise(): Promise<void> {
+  private get defaultPromise(): Promise<void> {
     return new Promise<void>((resolve) => resolve());
   }
 

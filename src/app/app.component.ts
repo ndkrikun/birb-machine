@@ -13,7 +13,7 @@ export class AppComponent {
   /**
    * Application title
    */
-  public readonly title = 'Welcome to the birb machine game!';
+  public readonly title = 'Welcome to the birb machine!';
 
   /**
    * Current app's stage
