@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { Price } from 'src/app/models/wallet.model';
 import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet-balance.action';
+import { SetAppStageAction } from '../../reducers/stage/actions/set-app-stage.action';
+import { StageNames } from '../../models/stage.model';
 
 @Component({
   selector: 'app-bet-form',
@@ -10,7 +12,7 @@ import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet
   styleUrls: ['./bet-form.component.scss']
 })
 export class BetFormComponent implements OnInit {
-  private readonly bets$ = this.store.select(
+  public readonly bets$ = this.store.select(
     ({ wallet: { bets } }) => bets
   );
 
@@ -22,5 +24,6 @@ export class BetFormComponent implements OnInit {
 
   public chooseBet(price: Price): void {
     this.store.dispatch(new SetWalletBalanceAction(price));
+    this.store.dispatch(new SetAppStageAction(StageNames.GAME));
   }
 }

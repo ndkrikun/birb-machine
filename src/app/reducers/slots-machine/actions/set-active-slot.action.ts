@@ -20,9 +20,6 @@ export class SetActiveSlotAction implements Action {
         (acc, ids) => ids.sectionId === section.id ? ids : acc,
         null
       );
-
-      console.log(pair);
-
       if (!!pair) {
         section.activeElementIndex = pair.slotIndex;
       }

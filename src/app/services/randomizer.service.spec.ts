@@ -1,15 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
-
-import { RandomizeServiceService } from './randomize-service.service';
+import { RandomizerService } from './randomizer.service';
 
 describe('RandomizeServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RandomizeServiceService]
+      providers: [RandomizerService]
     });
   });
 
-  it('should be created', inject([RandomizeServiceService], (service: RandomizeServiceService) => {
+  it('should be created', inject([RandomizerService], (service: RandomizerService) => {
     expect(service).toBeTruthy();
   }));
 });

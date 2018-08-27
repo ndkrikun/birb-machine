@@ -5,6 +5,6 @@
       class="bet-form__choice-button"
       *ngFor="let bet of (bets$ | async)"
       (click)="chooseBet(bet)"
-    >{{ bet.value }}</button>
+    >{{ bet.value }} {{ bet.currency }}</button>
   </div>
 </div>

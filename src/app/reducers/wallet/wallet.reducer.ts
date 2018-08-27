@@ -19,7 +19,7 @@ const walletDefaultState: WalletState = {
     currency: CurrencyTypes.GBP,
   }],
   loseFee: 0.1,
-  winFee: 0.3,
+  winFee: 0.5,
 };
 
 type WalletActions = (

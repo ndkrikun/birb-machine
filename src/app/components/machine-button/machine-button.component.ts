@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { RandomizeServiceService } from 'src/app/services/randomize-service.service';
+import { RandomizerService } from '../../services/randomizer.service';
 import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-active-slot.action';
-import { take } from 'rxjs/operators';
+import { take, withLatestFrom } from 'rxjs/operators';
+import { BalanceService } from '../../services/balance.service';
+import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet-balance.action';
 
 @Component({
   selector: 'app-machine-button',
@@ -17,8 +19,9 @@ export class MachineButtonComponent implements OnInit {
   );
 
   constructor(
-    public readonly store: Store<AppState>,
-    private readonly randomze: RandomizeServiceService,
+    private readonly store: Store<AppState>,
+    private readonly randomzer: RandomizerService,
+    private readonly balance: BalanceService,
   ) { }
 
   public ngOnInit(): void { }
@@ -27,9 +30,23 @@ export class MachineButtonComponent implements OnInit {
     this.slotSections$.pipe(
       take(1),
     ).subscribe(sections => {
-      const newSections = this.randomze.getRandomSlots(sections);
+      const newSections = this.randomzer.getRandomSlots(sections);
       this.store.dispatch(new SetActiveSlotAction(newSections));
     });
   }
 
+  public updateBalance(): void {
+    this.store.select(({ wallet }) => wallet).pipe(
+      take(1),
+      withLatestFrom(this.slotSections$),
+    ).subscribe(([wallet, selections]) => {
+      const updated = this.balance.getUpdatedBalance(selections, wallet);
+      this.store.dispatch(new SetWalletBalanceAction(updated));
+    });
+  }
+
+  public clickOnButton(): void {
+    this.setRandomSlots();
+    this.updateBalance();
+  }
 }

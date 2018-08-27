@@ -4,7 +4,7 @@ import { ActiveSlotPair, SlotSection } from 'src/app/models/slots.model';
 @Injectable({
   providedIn: 'root'
 })
-export class RandomizeServiceService {
+export class RandomizerService {
   /**
    * Returns random int in area inclusive min and max values
    */
