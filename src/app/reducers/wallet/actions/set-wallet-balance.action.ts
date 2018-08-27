@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { WalletActionTypes } from '../wallet.action-types';
 import { WalletState } from '../wallet.state';
-import { CurrencyTypes, Price } from '../../../models/wallet.model';
+import { Price } from '../../../models/wallet.model';
 
 /**
  * Sets wallet balance action

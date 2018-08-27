@@ -4,7 +4,7 @@ import { StageState } from '../stage.state';
 import { StageNames } from '../../../models/stage.model';
 
 /**
- * Sets app stage name
+ * Sets app's stage name
  */
 export class SetAppStageAction implements Action {
 

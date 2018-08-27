@@ -1,16 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PlayerBalanceComponent } from './player-balance.component';
+import { AppConfigureTestingModule } from 'src/app/app.testing';
 
 describe('PlayerBalanceComponent', () => {
   let component: PlayerBalanceComponent;
   let fixture: ComponentFixture<PlayerBalanceComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PlayerBalanceComponent ]
-    })
-    .compileComponents();
+    AppConfigureTestingModule().compileComponents();
   }));
 
   beforeEach(() => {

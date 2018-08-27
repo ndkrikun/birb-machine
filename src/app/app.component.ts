@@ -10,16 +10,28 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public readonly title = 'Welcome to the birb machine game!';
+  /**
+   * Application title
+   */
+  public readonly title = 'Welcome to the birb-machine!';
 
+  /**
+   * Current app's stage
+   */
   public stage$ = this.store.select(
     ({ stage: { name } }) => name
   );
 
+  /**
+   * Tells if current stage is place bet
+   */
   public isPlaceBetStage$ = this.stage$.pipe(
     map(stage => this.stageDefiner.isPlaceBet(stage))
   );
 
+  /**
+   * Tells if current stage is game
+   */
   public isGameStage$ = this.stage$.pipe(
     map(stage => this.stageDefiner.isGame(stage))
   );
@@ -27,5 +39,5 @@ export class AppComponent {
   constructor(
     private readonly store: Store<AppState>,
     private readonly stageDefiner: StageService,
-  ) {}
+  ) { }
 }

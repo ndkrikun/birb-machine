@@ -7,9 +7,9 @@ import { Price } from '../models/wallet.model';
   providedIn: 'root'
 })
 export class BalanceService {
-
-  constructor() { }
-
+  /**
+   * Tells if all machine sections have the same slots
+   */
   public isEqualSlots(sections: SlotSection[]): boolean {
     return sections
       .map(
@@ -20,12 +20,18 @@ export class BalanceService {
       );
   }
 
+  /**
+   * Muliplies desimal variables
+   */
   public multiplyDecimals(first: number, second: number): number {
     return Number(
       (first * second).toFixed(2)
     );
   }
 
+  /**
+   * Returns player's updated balance depends on sections' values
+   */
   public getUpdatedBalance(
     sections: SlotSection[],
     wallet: WalletState,

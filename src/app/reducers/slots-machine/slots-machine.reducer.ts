@@ -3,7 +3,6 @@ import { SlotsMachineActionTypes } from 'src/app/reducers/slots-machine/slots-ma
 import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-active-slot.action';
 import { slotsCollection } from 'src/app/data/slots.data';
 
-
 const slots = [
   ...slotsCollection,
   ...slotsCollection,

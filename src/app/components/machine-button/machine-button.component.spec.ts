@@ -1,16 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MachineButtonComponent } from './machine-button.component';
+import { AppConfigureTestingModule } from 'src/app/app.testing';
 
 describe('MachineButtonComponent', () => {
   let component: MachineButtonComponent;
   let fixture: ComponentFixture<MachineButtonComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MachineButtonComponent ]
-    })
-    .compileComponents();
+    AppConfigureTestingModule().compileComponents();
   }));
 
   beforeEach(() => {

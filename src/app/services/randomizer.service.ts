@@ -6,28 +6,26 @@ import { ActiveSlotPair, SlotSection } from 'src/app/models/slots.model';
 })
 export class RandomizerService {
   /**
-   * Returns random int in area inclusive min and max values
+   * Returns random element from array
    */
-  public getRandomInt(min: number, max: number): number {
-    return Math.floor(
-      Math.random() * (max - min + 1)
-    ) + min;
-  }
-
-  public getRandomSlot(indexes: number[]): number {
+  public getRandomElement<T>(indexes: T[]): T {
     return indexes[
       Math.floor(Math.random() * indexes.length)
     ];
   }
 
+  /**
+   * Return randomize selected slots
+   */
   public getRandomSlots(sections: SlotSection[]): ActiveSlotPair[] {
     return sections.map(({ id, elements }) => {
-      const ids = new Array<number>(elements.length).fill(null)
+      const ids = new Array<number>(elements.length)
+        .fill(null)
         .map((_, index) => index);
 
       return {
         sectionId: id,
-        slotIndex: this.getRandomSlot(ids)
+        slotIndex: this.getRandomElement(ids)
       };
     });
   }

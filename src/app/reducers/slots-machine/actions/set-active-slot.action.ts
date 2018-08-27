@@ -4,7 +4,7 @@ import { SlotsMachineActionTypes } from 'src/app/reducers/slots-machine/slots-ma
 import { SlotsMachineState } from 'src/app/reducers/slots-machine/slots-machine.state';
 
 /**
- * Sets active slots
+ * Sets active slots in sections
  */
 export class SetActiveSlotAction implements Action {
 
@@ -12,7 +12,7 @@ export class SetActiveSlotAction implements Action {
 
   constructor(
     public payload: ActiveSlotPair[],
-  ) {}
+  ) { }
 
   public reduce(this: void, state: SlotsMachineState, action: SetActiveSlotAction): SlotsMachineState {
     const sections = state.sections.map((section) => {
