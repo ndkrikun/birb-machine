@@ -15,7 +15,7 @@ export interface SlotElement {
 
 export enum SlotElementNames {
   MIKE = 'Screaming Mike',
-  JOHN = 'Scarry John',
+  JOHN = 'Scary John',
   JAKE = 'Friendly Jake',
 }
 

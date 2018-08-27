@@ -19,6 +19,8 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 ## Features to add & improve
 
 - add components for 'start' and 'end' game stages (start button, results table)
+- add ability to restart the game
+- add ability to stop the game
 - add table component for balance history with additional info (fees, etc.)
 - add sounds for positive / negative shuffle results
 - rewrite machine button debounce with transitionEnd && soundPlayEnd handlers subscription
