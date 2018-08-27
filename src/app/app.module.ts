@@ -7,16 +7,22 @@ import { AppComponent } from './app.component';
 import { SlotsMachineComponent } from './components/slots-machine/slots-machine.component';
 import { slotsMachineReducer } from './reducers/slots-machine/slots-machine.reducer';
 import { RandomizeServiceService } from 'src/app/services/randomize-service.service';
+import { MachineButtonComponent } from './components/machine-button/machine-button.component';
+import { BetFormComponent } from './components/bet-form/bet-form.component';
+import { walletReducer } from './reducers/wallet/wallet.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SlotsMachineComponent
+    SlotsMachineComponent,
+    MachineButtonComponent,
+    BetFormComponent
   ],
   imports: [
     BrowserModule,
     StoreModule.forRoot<AppState>({
       slotsMachine: slotsMachineReducer,
+      wallet: walletReducer,
     }),
     StoreDevtoolsModule.instrument()
   ],

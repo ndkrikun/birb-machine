@@ -5,7 +5,7 @@
   >
     <div
       class="slots-machine__section-wrap"
-      [style.marginTop]="getSectionCoordinates(section.activeElementId)">
+      [style.marginTop]="getSectionCoordinates(section.activeElementIndex)">
       <div
         class="slots-machine__section-el"
         *ngFor="let slot of section.elements"
@@ -18,6 +18,4 @@
       </div>
     </div>
   </div>
-
-  <button (click)="go()">Go</button>
 </div>

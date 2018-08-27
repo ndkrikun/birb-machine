@@ -3,7 +3,7 @@ import { ColorCode } from './colors.model';
 export interface SlotSection {
   id: number;
   elements: ReadonlyArray<SlotElement>;
-  activeElementId: number;
+  activeElementIndex: number;
 }
 
 export interface SlotElement {
@@ -21,5 +21,5 @@ export enum SlotElementNames {
 
 export interface ActiveSlotPair {
   sectionId: number;
-  slotId: number;
+  slotIndex: number;
 }

@@ -14,18 +14,20 @@ export class RandomizeServiceService {
     ) + min;
   }
 
-  public getRandomSlotId(slotIds: number[]): number {
-    return slotIds[
-      Math.floor(Math.random() * slotIds.length)
+  public getRandomSlot(indexes: number[]): number {
+    return indexes[
+      Math.floor(Math.random() * indexes.length)
     ];
   }
 
   public getRandomSlots(sections: SlotSection[]): ActiveSlotPair[] {
-    return sections.map(section => {
-      const ids = section.elements.map(({ id }) => id);
+    return sections.map(({ id, elements }) => {
+      const ids = new Array<number>(elements.length).fill(null)
+        .map((_, index) => index);
+
       return {
-        sectionId: section.id,
-        slotId: this.getRandomSlotId(ids)
+        sectionId: id,
+        slotIndex: this.getRandomSlot(ids)
       };
     });
   }

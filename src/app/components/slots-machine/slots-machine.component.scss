@@ -1,13 +1,14 @@
 .slots-machine {
-  width: 600px;
-  margin: 0 auto;
+  padding: 30px 0;
 
   &__section {
     display: inline-block;
     width: 33.333%;
     height: 240px;
     overflow: hidden;
-    transition: margin 200ms ease;
+    &-wrap {
+      transition: margin 350ms ease;
+    }
     &-el {
       position: relative;
       height: 240px;

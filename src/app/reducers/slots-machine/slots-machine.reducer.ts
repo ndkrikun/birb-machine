@@ -4,19 +4,25 @@ import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-
 import { slotsCollection } from 'src/app/data/slots.data';
 
 
+const slots = [
+  ...slotsCollection,
+  ...slotsCollection,
+  ...slotsCollection,
+];
+
 const slotsMachineDefaultState: SlotsMachineState = {
   sections: [{
     id: 1,
-    elements: slotsCollection,
-    activeElementId: 1,
+    elements: slots,
+    activeElementIndex: 0,
   }, {
     id: 2,
-    elements: slotsCollection,
-    activeElementId: 2,
+    elements: slots,
+    activeElementIndex: 1,
   }, {
     id: 3,
-    elements: slotsCollection,
-    activeElementId: 3,
+    elements: slots,
+    activeElementIndex: 2,
   }]
 };
 
