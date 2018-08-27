@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 
@@ -7,9 +7,15 @@ import { AppState } from 'src/app/app.state';
   templateUrl: './slots-machine.component.html',
   styleUrls: ['./slots-machine.component.scss']
 })
-export class SlotsMachineComponent implements OnInit {
+export class SlotsMachineComponent {
+  /**
+   * Single slot height
+   */
   private readonly slotHeight = 240;
 
+  /**
+   * Slot sections' data
+   */
   public readonly slotSections$ = this.store.select(
     ({ slotsMachine: { sections } }) => sections
   );
@@ -18,13 +24,16 @@ export class SlotsMachineComponent implements OnInit {
     public readonly store: Store<AppState>,
   ) {}
 
+  /**
+   * Prepares section coordinates
+   */
   public getSectionCoordinates(activeSlotIndex: number): string {
     return `-${(activeSlotIndex) * this.slotHeight}px`;
   }
 
-  public ngOnInit(): void {
-  }
-
+  /**
+   * Prepares slot element's background image
+   */
   public backgroundImage(url: string): string {
     return `url('${url}')`;
   }

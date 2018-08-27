@@ -1,7 +1,4 @@
-// TODO: make global color variables
-$green: #3AEA49;
-$red: #F34F56;
-$white: #ffffff;
+@import '../../../globals.scss';
 
 .bet-form {
   font-size: 0;
@@ -15,22 +12,8 @@ $white: #ffffff;
   &__choice {
     padding: 20px 0;
     &-button {
-      display: inline-block;
       width: 33.333%;
-      padding: 10px 20px;
-      font-size: 14px;
-      color: $white;
-      background-color: $red;
-      border: 1px solid $red;
-      text-transform: uppercase;
-      transition: all 200ms ease;
-      cursor: pointer;
-  
-      &:hover {
-        color: $red;
-        background-color: transparent;
-      }
+      @include button($red);
     }
   }
-
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { RandomizerService } from '../../services/randomizer.service';
 import { SetActiveSlotAction } from 'src/app/reducers/slots-machine/actions/set-active-slot.action';
@@ -12,8 +12,11 @@ import { SetWalletBalanceAction } from '../../reducers/wallet/actions/set-wallet
   templateUrl: './machine-button.component.html',
   styleUrls: ['./machine-button.component.scss']
 })
-export class MachineButtonComponent implements OnInit {
+export class MachineButtonComponent {
 
+  /**
+   * Slot sections' data
+   */
   public readonly slotSections$ = this.store.select(
     ({ slotsMachine: { sections } }) => sections
   );
@@ -24,8 +27,9 @@ export class MachineButtonComponent implements OnInit {
     private readonly balance: BalanceService,
   ) { }
 
-  public ngOnInit(): void { }
-
+  /**
+   * Sets random slots activity
+   */
   public setRandomSlots() {
     this.slotSections$.pipe(
       take(1),
@@ -35,6 +39,9 @@ export class MachineButtonComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates player's balance
+   */
   public updateBalance(): void {
     this.store.select(({ wallet }) => wallet).pipe(
       take(1),
@@ -45,6 +52,9 @@ export class MachineButtonComponent implements OnInit {
     });
   }
 
+  /**
+   * Click on the button handler
+   */
   public clickOnButton(): void {
     this.setRandomSlots();
     this.updateBalance();
